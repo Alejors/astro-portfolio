@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@components*": ["src/components*"],
+      "@components/*": ["src/components/*"]
+    }
+  },
+  "include": ["src", "astro.config.*"]
+}

@@ -1,0 +1,33 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: "Noviembre 2023 - Marzo 2025",
+        title: "Desarrollador Backend - Enviame",
+        description: "Formé parte de una célula de desarrollo. Desarrollé una integración para notificar vía WhatsApp las actualizaciones de estado en tiempo real. Se creó una tarea automatizada para generar reportes de utilización. Implementé una mejora en el sistema de webhooks de la empresa, habilitando la creación de webhooks mediante una interfaz gráfica. Participé en desarrollos personalizados para clientes VIP. Mapeé las zonas geográficas de nuevos países donde se comenzaría a operar.",
+        link: "https://enviame.io/"
+    },
+    {
+        date: "Enero 2023 - Octubre 2023",
+        title: "Desarrollador Full Stack - CEININA",
+        description: "Desarrollé actualizaciones para el sistema utilizado por universidades extranjeras para estudios sobre la esclerosis múltiple, desarrollé sistemas para diferentes campus y facultades de la Universidad de Illinois (UIUC y UIC), trabajé en aplicaciones móvil para proyectos FONDEF para mejorar la percepción de riesgo de caída de personas de tercera edad y para mejorar la percepción de riesgo ante desastres naturales.",
+        link: "https://ceinina.cl/"
+    },
+    {
+        date: "Septiembre 2022 - Diciembre 2022",
+        title: "Desarrollador Full Stack Trainee - Romero y Asociados",
+        description: "Pasantía donde desarrollé un ETL que extraía información obtenida por un scrapeo de actuaciones legales y entregaba reportes respecto al nombre o RUT de la empresa. Disponibilicé una interfaz gráfica que facilitaba el acceso al microservicio anterior. Participé de revisiones de código por parte de desarrolladores de mayor seniority.",
+        link: "https://romeroyasociados.cl/"
+    }
+]
+---
+<ol class="relative border-s border-gray-200 ml-3">                  
+    {
+        EXPERIENCE.map((experience) => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }
+</ol>

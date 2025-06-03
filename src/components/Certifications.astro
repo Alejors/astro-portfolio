@@ -1,0 +1,84 @@
+---
+const CERTIFICATIONS = [
+  {
+    title: "Full Stack Developer",
+    foundation: "4Geeks Academy Chile",
+    description: "En este Bootcamp te desarrollarás desde cero como Full Stack Developer. Aprenderás a crear un sitio web sumergiéndote en las mejores prácticas del diseño web responsive, trabajando con diversos lenguajes. Obtendrás una sólida base de frontend, backend, base de datos, manejo de procesos distribuidos y despliegue en plataformas web.\nAl finalizar este programa, contarás con los conocimientos para incorporarte al sector tecnológico como Full Stack Developer.",
+    pdf: "https://drive.google.com/file/d/1Cysd7ahUa-2RbHp7ZbJjLDaGgzZ1EyVv/view?usp=drive_link",
+    link: "https://4geeksacademy.com/es/coding-bootcamps/desarrollador-full-stack",
+  },
+  {
+    title: "CS50x",
+    foundation: "CS50, Harvard University",
+    description: "This is CS50, Harvard University’s introduction to the intellectual enterprises of computer science and the art of programming, for concentrators and non-concentrators alike, with or without prior programming experience. (Two thirds of CS50 students have never taken CS before.) This course teaches you how to solve problems, both with and without code, with an emphasis on correctness, design, and style. Topics include computational thinking, abstraction, algorithms, data structures, and computer science more generally. Problem sets inspired by the arts, humanities, social sciences, and sciences. More than teach you how to program in one language, this course teaches you how to program fundamentally and how to teach yourself new languages ultimately. The course starts with a traditional but omnipresent language called C that underlies today’s newer languages, via which you’ll learn not only about functions, variables, conditionals, loops, and more, but also about how computers themselves work underneath the hood, memory and all. The course then transitions to Python, a higher-level language that you’ll understand all the more because of C. Toward term’s end, the course introduces SQL, via which you can store data in databases, along with HTML, CSS, and JavaScript, via which you can create web and mobile apps alike. Course culminates in a final project.",
+    pdf: "https://drive.google.com/file/d/1VZ8YTYuqaegy9CWzwoYKX__yhSimEISr/view?usp=drive_link",
+    link: "https://cs50.harvard.edu/x/2025/"
+  },
+  {
+    title: "English C2 (Proficient)",
+    foundation: "EF Set",
+    description: "Certificación para obtener nivel de Inglés de manera gratuita",
+    pdf: "https://drive.google.com/file/d/1TMIBrQKp0z328eAydnyTqLbEe6Diqho4/view?usp=drive_link",
+    link: "https://www.efset.org/es/"
+  }
+];
+---
+
+{
+  CERTIFICATIONS.map(({ title, foundation, description, pdf, link }) => (
+    <article>
+      <h3 class="text-2xl lg:text-4xl">{title} - <strong>{foundation}</strong></h3>
+      <p class="text-pretty my-2">{description}</p>
+      <ul class="my-2 lg:my-4 flex justify-between">
+        {pdf && (
+            <li>
+                <a
+                href={pdf}
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                >
+                    Ver el certificado{" "}
+                    <svg
+                        class="w-3 h-3 ms-2 rtl:rotate-180"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                    >
+                        <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                    </svg>
+                </a>
+            </li>
+        )}
+        {link && (
+            <a
+            href={link}
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >
+            Ver más de este curso{" "}
+            <svg
+                class="w-3 h-3 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+            >
+                <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+            </svg>
+            </a>
+        )}
+      </ul>
+    </article>
+  ))
+}
