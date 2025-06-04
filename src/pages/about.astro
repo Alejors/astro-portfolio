@@ -1,0 +1,46 @@
+---
+import BackButton from "@components/BackButton.astro";
+import SectionContainer from "@components/SectionContainer.astro";
+import Layout from "src/layouts/Layout.astro";
+
+const DATOS = {
+    nombre: "Alejandro Nicolás Atria Barrientos",
+    fecha_de_nacimiento: "27/01/1988",
+    estado_civil: "casado",
+    hijos: 0,
+    profesión: "Médico Veterinario",
+    ocupación: "Desarrollador Full Stack",
+    hobbies: "Series, Videojuegos, Cocinar"
+}
+
+function capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+---
+
+<Layout
+  title="Alejandro Atria - Más Información"
+  description="Información adicional sobre Alejandro. Datos personales que pueden ser relevantes para conocer a nivel personal."
+>
+  <SectionContainer class="pt-6">
+    <img
+        class="rounded-full size-40"
+        src="https://avatars.githubusercontent.com/u/83140661?v=4"
+        alt="portfolio logo"
+      />
+    <h1
+      class="text-white text-2xl md:text-4xl xl:text-5xl font-bold lg:flex lg:flex-row gap-x-4 pb-4 lg:pb-10"
+    >
+      Información Sobre Mí
+    </h1>
+    <ul class="mb-10">
+        {
+            Object.entries(DATOS).map(([key, value]) => (
+                <li><strong>{capitalize(key.replaceAll("_", " "))}:</strong> {value}</li>
+            ))
+        }
+    </ul>
+    <BackButton />
+  </SectionContainer>
+</Layout>

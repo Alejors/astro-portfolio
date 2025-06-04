@@ -1,0 +1,144 @@
+---
+import BackButton from "@components/BackButton.astro";
+import CertificationsComponent from "@components/CertificationsComponent.astro";
+import Filetext from "@components/icons/Filetext.astro";
+import SectionContainer from "@components/SectionContainer.astro";
+import Layout from "src/layouts/Layout.astro";
+
+const DATA = [
+  {
+    title: "CS50x",
+    foundation: "CS50, Harvard University",
+    description:
+      "This is CS50, Harvard University’s introduction to the intellectual enterprises of computer science and the art of programming, for concentrators and non-concentrators alike, with or without prior programming experience. (Two thirds of CS50 students have never taken CS before.) This course teaches you how to solve problems, both with and without code, with an emphasis on correctness, design, and style. Topics include computational thinking, abstraction, algorithms, data structures, and computer science more generally. Problem sets inspired by the arts, humanities, social sciences, and sciences. More than teach you how to program in one language, this course teaches you how to program fundamentally and how to teach yourself new languages ultimately. The course starts with a traditional but omnipresent language called C that underlies today’s newer languages, via which you’ll learn not only about functions, variables, conditionals, loops, and more, but also about how computers themselves work underneath the hood, memory and all. The course then transitions to Python, a higher-level language that you’ll understand all the more because of C. Toward term’s end, the course introduces SQL, via which you can store data in databases, along with HTML, CSS, and JavaScript, via which you can create web and mobile apps alike. Course culminates in a final project.",
+    pdf: "https://drive.google.com/file/d/1VZ8YTYuqaegy9CWzwoYKX__yhSimEISr/view?usp=drive_link",
+    link: "https://cs50.harvard.edu/x/2025/",
+  },
+  {
+    title: "Full Stack Developer",
+    foundation: "4Geeks Academy Chile",
+    description:
+      "En este Bootcamp te desarrollarás desde cero como Full Stack Developer. Aprenderás a crear un sitio web sumergiéndote en las mejores prácticas del diseño web responsive, trabajando con diversos lenguajes. Obtendrás una sólida base de frontend, backend, base de datos, manejo de procesos distribuidos y despliegue en plataformas web.\nAl finalizar este programa, contarás con los conocimientos para incorporarte al sector tecnológico como Full Stack Developer.",
+    pdf: "https://drive.google.com/file/d/1Cysd7ahUa-2RbHp7ZbJjLDaGgzZ1EyVv/view?usp=drive_link",
+    link: "https://4geeksacademy.com/es/coding-bootcamps/desarrollador-full-stack",
+  },
+  {
+    title: "English C2 (Proficient)",
+    foundation: "EF Set",
+    description:
+      "Certificación para obtener nivel de Inglés de manera gratuita",
+    pdf: "https://drive.google.com/file/d/1TMIBrQKp0z328eAydnyTqLbEe6Diqho4/view?usp=drive_link",
+    link: "https://www.efset.org/es/",
+  },
+  {
+    title: "Programación en GO",
+    foundation: "Platzi",
+    description:
+      "Programa aplicaciones backend con Go. Aprende variables, funciones, goroutines y manejar concurrency para procesos eficientes. Desarrolla con GoMod y aprovecha paquetes externos. Implementa prácticas recomendadas desde métodos hasta channels.",
+    pdf: "https://drive.google.com/file/d/1UzbQsqvDT1q1QeLILbqlBeE-yPKxr7Tr/view?usp=drive_link",
+    link: "https://platzi.com/cursos/programacion-golang/",
+  },
+  {
+    title: "GO Intermedio: Programación Orientada a Objetos y Concurrencia",
+    foundation: "Platzi",
+    description:
+      "Crea un servidor web con Go que procesa trabajos concurrentemente utilizando worker pools. Aprende sobre programación orientada a objetos, concurrencia y canales. Implementa pruebas para asegurar la calidad y optimización del código.",
+    pdf: "https://drive.google.com/file/d/1MPqCF8DWvJl5KYeZLH1NyyyheeSwx3Z9/view?usp=drive_link",
+    link: "https://platzi.com/cursos/golang-intermedio/",
+  },
+  {
+    title: "Avanzado de Golang",
+    foundation: "Platzi",
+    description:
+      "Aprende a manejar concurrencia y patrones de diseño en Go. Crearás un sistema de caché eficiente, un escaneador de puertos TCP concurrente y un servidor de chat desde cero, aprovechando la poderosa librería estándar de Go.",
+    pdf: "https://drive.google.com/file/d/1apgbLbMU0lJcgPV86wSTtvjphg-ExmoE/view?usp=drive_link",
+    link: "https://platzi.com/cursos/golang-avanzado/",
+  },
+  {
+    title: "Go Avanzado: REST y Websockets",
+    foundation: "Platzi",
+    description:
+      "Desarrolla aplicaciones avanzadas en Go con REST y WebSockets. Aprende a implementar APIs, gestionar comunicaciones en tiempo real y manejar bases de datos. Ideal para desarrolladores backend que buscan mejorar sus habilidades.",
+    pdf: "hhttps://drive.google.com/file/d/1FXrRz2OlYsYifIiIhIjQSvPXan6IZMar/view?usp=drive_link",
+    link: "https://platzi.com/cursos/go-rest-websockets/",
+  },
+  {
+    title: "Curso Práctico de SQL",
+    foundation: "Platzi",
+    description:
+      "SQL es el lenguaje por excelencia para el manejo de datos estructurados. Incrementa tus habilidades en él con ejercicios de álgebra relacional, subconsultas y window functions. Aprende a hacer consultas más eficientes y complejas con este lenguaje.",
+    pdf: "https://drive.google.com/file/d/1UzbQsqvDT1q1QeLILbqlBeE-yPKxr7Tr/view?usp=drive_link",
+    link: "https://platzi.com/cursos/practico-sql/",
+  },
+  {
+    title: "Arquitecturas Limpias para Desarrollo de Software",
+    foundation: "Platzi",
+    description:
+      "Aprende a diseñar software con arquitecturas limpias, enfocándote en el dominio y separando las responsabilidades a través de capas. Explora patrones de diseño, integra servicios y aplica técnicas de testing eficaz. Indispensable para desarrolladores con experiencia.",
+    pdf: "https://drive.google.com/file/d/1o8GusJBJGWB9rle8pM7QDQjvX0f-Ljei/view?usp=drive_link",
+    link: "https://platzi.com/cursos/arquitecturas-limpias/",
+  },
+  {
+    title: "Introducción a los Patrones de Diseño de Software",
+    foundation: "Platzi",
+    description:
+      "Comprende y aplica patrones de diseño de software para crear soluciones eficientes. Aprenderás sobre las categorías creacionales, estructurales y de comportamiento, y su implementación usando programación orientada a objetos. Conoce cómo mejorar el diseño, reusabilidad y extensibilidad de tu código, y emplea UML para modelar relaciones entre clases. Implementa",
+    pdf: "https://drive.google.com/file/d/1iAd8L6YAkwbmhkRhh76j3NG51eLxXtBr/view?usp=drive_link",
+    link: "https://platzi.com/cursos/patrones-diseno-software/",
+  },
+  {
+    title: "Patrones de Diseño Creacionales en JavaScript",
+    foundation: "Platzi",
+    description:
+      "Construye aplicaciones robustas con patrones de diseño en JavaScript. Aprende a crear objetos reusables con Singleton, Factory y Builder; y explora la creación de prototipos eficientes con Prototype. Desarrolla código flexible y extensible.",
+    pdf: "https://drive.google.com/file/d/1pNXAhbUXgdmx0nu0-pSDDseXnoohdRzi/view?usp=drive_link",
+    link: "https://platzi.com/cursos/patrones-diseno-creacionales/",
+  },
+  {
+    title: "Fundamentos de Matemáticas",
+    foundation: "Platzi",
+    description:
+      "Comprende desde cero los conceptos básicos de matemáticas. A partir de operaciones fundamentales como la aritmética y la simbología del álgebra, explora funciones y gráficas, y desentraña la esencia de los polinomios.",
+    pdf: "https://drive.google.com/file/d/1bWTrQxXHEosRYlzq9nNBArCEHHGzWKS3/view?usp=drive_link",
+    link: "https://platzi.com/cursos/fundamentos-matematicas/",
+  },
+  {
+    title: "Manipulación y Transformación de Datos con Pandas y NumPy",
+    foundation: "Platzi",
+    description:
+      "Manipula y transforma grandes cantidades de datos numéricos y en tablas con dos de las librerías más utilizadas en data science: Pandas y NumPy. Crea y utiliza DataFrames y Arrays que te permitan analizar datos de forma sencilla.",
+    pdf: "https://drive.google.com/file/d/1ViRl0yixZTxVjTqRY-7qs2V5sLs61-ji/view?usp=drive_link",
+    link: "https://platzi.com/cursos/pandas-numpy/",
+  },
+  {
+    title: "PHP con Laravel",
+    foundation: "Platzi",
+    description:
+      "Aprovecha todas las bondades de Laravel. Descubre con este framework PHP las ventajas de tener una increíble comunidad de apoyo y sé el mejor artesano de desarrollo que ha pisado la tierra.",
+    pdf: "https://drive.google.com/file/d/1GnSbZ4bZ7Wkmw8qaGkjPHd6i3PdnKZNh/view?usp=drive_link",
+    link: "https://platzi.com/cursos/curso-php-laravel/",
+  },
+  {
+    title: "SCRUM Foundation Professional Certificate (SFPC)",
+    foundation: "CertiProf",
+    description: "",
+    pdf: "https://drive.google.com/file/d/1d_fBWBgCYCXqMjKT-NBcl3QV-toG66Pe/view?usp=drive_link",
+    link: "https://certiprof.com/es/pages/sfpc-scrum-foundation-certification-spanish",
+  },
+];
+---
+
+<Layout
+  title="Certificaciones de Alejandro Atria"
+  description="Todas las certificaciones obtenidas referentes al trabajo de TI, desarrollo front end, full stack o back end"
+>
+  <SectionContainer class="pt-6 pb-4 lg:pb-24">
+    <h1
+      class="text-white text-2xl md:text-4xl xl:text-5xl font-bold lg:flex lg:flex-row gap-x-4 pb-4 lg:pb-10"
+    >
+      <Filetext class="size-12" />Certificaciones
+    </h1>
+    <CertificationsComponent certifications={DATA} />
+    <BackButton />
+  </SectionContainer>
+</Layout>
